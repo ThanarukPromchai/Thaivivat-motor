@@ -2,8 +2,6 @@ import * as logUtils from '../utils/logUtils.js'
 import * as dateUtils from '../utils/dateUtils.js'
 
 describe('fuction spec', () => {
-
-
   beforeEach(()=>{
     cy.wrap({
       timestamp: `${dateUtils.formatPad2(new Date())}`
