@@ -22,10 +22,10 @@ module.exports = defineConfig({
     },
     "env": {
       "db": {
-        "server": '127.0.0.1',
-        user: "sa",
-        password: "1234",
-        database: "motor"
+        "server": 'bch7uqeda4jykbc5p2bq-mysql.services.clever-cloud.com',
+        user: "u3vptwdyju71mj4m",
+        password: "xJEv0TRBpLZ4C2yP7LlL",
+        database: "bch7uqeda4jykbc5p2bq"
       }
     }
   },
