@@ -4,6 +4,7 @@ const fs = require('fs')
 
 
 module.exports = defineConfig({
+  projectId: 's2ekj4',
   e2e: {
     setupNodeEvents(on, config) {
       on("task", {
