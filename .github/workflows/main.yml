@@ -1,8 +1,0 @@
-name: Cypress Test
-
-on: [push]
-
-jobs:
-  cypress-run:
-    steps:
-      - uses: cypress-io/github-action@v6
