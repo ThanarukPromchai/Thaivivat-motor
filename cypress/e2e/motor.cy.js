@@ -40,7 +40,7 @@ describe('template spec', () => {
     e2e.promoMotor(info)
   })
 
-  it('BMW type 1 plan 365, 730', ()=>{
+  it('BMW type 2 plan 365, 730', ()=>{
     let info = {
       brand: "BMW",
       planType: "2",
@@ -56,7 +56,7 @@ describe('template spec', () => {
     e2e.promoMotor(info)
   })
 
-  it('CHEVROLET type 1 plan 365, 730', ()=>{
+  it('CHEVROLET type 2 plan 365, 730', ()=>{
     let info = {
       brand: "CHEVROLET",
       planType: "2",
@@ -72,7 +72,7 @@ describe('template spec', () => {
     e2e.promoMotor(info)
   })
 
-  it('FIAT type 1 plan 365, 730', ()=>{
+  it('FIAT type 2 plan 365, 730', ()=>{
     let info = {
       brand: "FIAT",
       planType: "2",
@@ -88,7 +88,7 @@ describe('template spec', () => {
     e2e.promoMotor(info)
   })
 
-  it('FORD type 1 plan 365, 730', ()=>{
+  it('FORD type 2 plan 365, 730', ()=>{
     let info = {
       brand: "FORD",
       planType: "2",
@@ -104,7 +104,7 @@ describe('template spec', () => {
     e2e.promoMotor(info)
   })
 
-  it('HONDA type 1 plan 365, 730', ()=>{
+  it('HONDA type 2 plan 365, 730', ()=>{
     let info = {
       brand: "HONDA",
       planType: "2",
