@@ -20,7 +20,6 @@ jobs:
           # Starts web server for E2E tests - replace with your own server invocation
           # https://docs.cypress.io/guides/continuous-integration/introduction#Boot-your-server
           start: npx cypress run --record --key 2f4b1b79-7ce1-4a17-8692-92f2aa5a304f
-          wait-on: 'http://localhost:3000' # Waits for above
           # Records to Cypress Cloud 
           # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
           record: true
