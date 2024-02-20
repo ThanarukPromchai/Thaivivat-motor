@@ -16,7 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-import * as logUtils from "../utils/logUtils";
+
 import { th, Faker } from '@faker-js/faker';
 import thaiIdCard from "thai-id-card"
 
@@ -34,108 +34,42 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return false
 })
 
-export function promoMotor(info) {
-  var logPath = `cypress/log/${info.brand}/log.json`
-  logUtils.read(logPath, (log)=>{
-    cy.task("queryDb", `SELECT * from car_model c WHERE c.brand = '${info.brand}' AND c.car_year = 2021;`)
-      .then(m => {
-        for (let i = 0; i < m.length; i++) {
-          let model = m[i]
-          if (model != undefined) {
-            let policy_type_min = ""
-            let policy_type_max = ""
-
-            if (info.planType == 1) {
-              policy_type_min = model.policy_type1_min.replaceAll(",", "")
-              policy_type_max = model.policy_type1_max.replaceAll(",", "")
-            } else {
-              policy_type_min = model.policy_type_min.replaceAll(",", "")
-              policy_type_max = model.policy_type_max.replaceAll(",", "")
-            }
-
-            if (!policy_type_max.isNumber() || !policy_type_min.isNumber()) continue
-
-            cy.task("queryDb", `SELECT DISTINCT m.code, m.type, m.campaign, m.sum_insure, m.plan_date, m.plan_fix, m.check_campaign, m.issue_pass FROM promotion_main m 
-            WHERE m.veh_cat = '${model.veh_cat}' 
-            AND m.type = '${info.planType}'
-            AND m.campaign like '%PU%' 
-            AND m.sum_insure BETWEEN ${policy_type_min} AND ${policy_type_max} AND m.plan_date IN (${info.planDate.join(",")})`)
-              .then(p => {
-                for (let j = 0; j < p.length; j++) {
-                  let plan = p[j]
-                  if (plan !== undefined) {
-                    let curLog = { 
-                      model: model.veh_desc,
-                      car_year: model.car_year,
-                      code: plan.code
-                    }
-
-                    var duplicateRec = log != null && log.find((v) => {
-                      return v.model == model.veh_desc && v.car_year == model.car_year && v.code == plan.code
-                    }) != undefined
-
-                    if (duplicateRec) {
-                      continue
-                    } else {
-                      logUtils.write(curLog)
-  
-                      const objCar = {
-                        year: model.car_year,
-                        brand: model.brand,
-                        model: model.veh_desc,
-                        type: plan.type
-                      }
-                    
-                      selectCar(objCar)
-                      selectPlan(plan)
-                      purchaseInfo(plan, info, model)
-                      console.log(`Plan code -> ${plan.code}: SUCCESS!`)
-                    }
-                  }
-                }
-              })
-          }
-        }
-      })
-  })
-}
-
-function selectCar(obj) {  
+export function selectCar(element) {  
   var plus = ""
-  if (obj.type > 1) { plus = '-plus' }
+  if (element.type > 1) { plus = '-plus' }
   
   cy.wait(1000);
-  cy.get(`[data-test="button-planType-${obj.type}${plus}"]`).click();
+  cy.get(`[data-test="button-planType-${element.type}${plus}"]`).click();
 
-  cy.get('[data-test="input-car-year"]').type(obj.year);
-  cy.get('[data-test="input-car-year"]').type('{downArrow}{enter}');
+  cy.get('[data-test="input-car-year"]', { timeout: 500 }).type(element.car_year);
+  cy.get('[data-test="input-car-year"]', { timeout: 500 }).type('{downArrow}{enter}');
 
-  cy.get('[data-test="input-car-brand"]').type(obj.brand);
-  cy.get('[data-test="input-car-brand"]').type('{downArrow}{enter}');
+  cy.get('[data-test="input-car-brand"]', { timeout: 500 }).type(element.brand);
+  cy.get('[data-test="input-car-brand"]', { timeout: 500 }).type('{downArrow}{enter}');
 
   cy.wait(1000);
-  cy.get('[data-test="input-car-model"]')
+  cy.get('[data-test="input-car-model"]', { timeout: 500 })
     .invoke('val')
     .then(text => {
       if (text.trim() == '') {
-        cy.get('[data-test="input-car-model"]').type(obj.model);
-        cy.get('[data-test="input-car-model"]').type('{downArrow}{enter}');
+        cy.get('[data-test="input-car-model"]', { timeout: 500 }).type(element.veh_desc);
+        cy.get('[data-test="input-car-model"]', { timeout: 500 }).type('{downArrow}{enter}');
       }
       cy.get('[data-test="button-check-price"]').click();
     });
 }
 
-function selectPlan(plan) {
+export function selectPlan(element) {
   cy.get("body").then($body => {
     if ($body.find('[id="onetrust-accept-btn-handler"]').length > 0) {   
       cy.get('[id="onetrust-accept-btn-handler"]').click();
     }
   });
 
-  const id = `${plan.campaign}-${plan.sum_insure}`
+  const id = `${element.campaign}-${element.sum_insure}`
   cy.contains("แนะนำแผนประกัน", { timeout: 25000 }).then(() => {
-    if (plan.plan_date == 30)      { cy.get('[id="hour1"]').click(); } 
-    else if (plan.plan_date == 90) { cy.get('[id="hour2"]').click(); }
+    if (element.plan_date == 30)      { cy.get('[id="hour1"]').click(); } 
+    else if (element.plan_date == 90) { cy.get('[id="hour2"]').click(); }
   
     cy.get("#select-plan-" + id).click({ force: true, timeout: 25000 })
   
@@ -143,7 +77,7 @@ function selectPlan(plan) {
   })
 }
 
-function purchaseInfo(plan, info, model) {
+export function purchaseInfo(element, info) {
   let value = {
     chassis: randomNumber(),
     licensePlateNo: randomPlateNumber(),
@@ -168,14 +102,14 @@ function purchaseInfo(plan, info, model) {
 
   //HomePlus/ExtraPlus 
   cy.wait(1000)
-  if(plan.plan_date != 30 && info.homePlus) {
+  if(element.plan_date != 30 && info.homePlus) {
     cy.get('[id="home_flag"]', { timeout: 10000 }).should('be.visible');
     cy.get('[id="home_flag"]').click()
     cy.get('[id="confirm_owner_flag"]').click()
     cy.get('[id="btn-confirm-owner-home"]').click()
   }
   
-  if([365, 730].includes(plan.plan_date) && info.extraPlus) {
+  if([365, 730].includes(element.plan_date) && info.extraPlus) {
     cy.get('[class="checkbox-btn pull-left"]', { timeout: 10000 }).should('be.visible');
     cy.get('[id="extra_flag"]').check()
   }
@@ -227,7 +161,7 @@ function purchaseInfo(plan, info, model) {
   })
 
   cy.get('@init').then((init) => {
-    cy.screenshot(`${info.brand}/${init.timestamp}/${model.veh_desc}/${model.car_year}/${plan.type}/${plan.campaign}/${plan.code}`);
+    cy.screenshot(`${info.brand}/${init.timestamp}/${element.veh_desc}/${element.car_year}/${element.type}/${element.campaign}/${element.code}`);
   })
   
   //submit purchase insure
@@ -236,30 +170,20 @@ function purchaseInfo(plan, info, model) {
 
  
   cy.get("body").then($body => {
-    if (plan.type > 1) {
+    if (element.type > 1) {
       cy.get('[id="button-confirm"]').click();
-      paymentInfo(plan, model)
+      paymentInfo()
     } else {
       if ($body.find('[id="button-back"]').length > 0) {   
         cy.get('[id="button-back"]').click();
       } else {
         cy.get('.botton_submit').click();
-
-        let curLog = { 
-          model: model.veh_desc,
-          car_year: model.car_year,
-          code: plan.code,
-          result: true 
-        }
-
-        logUtils.write(curLog)
-        logUtils.save(logPath)
       }
     }
   });
 }
 
-function paymentInfo(plan, model) {
+function paymentInfo() {
   const payment = {
     cardName: "test",
     cardNo: '4242424242424242',
@@ -277,22 +201,12 @@ function paymentInfo(plan, model) {
   cy.get ('[ id="card-ccv"]').type(payment.ccv);
   cy.get ('[id="button-confirm"]').click();
 
-  confirm(plan, model)
+  confirm()
 }
 
-function confirm(plan, model) {
+function confirm() {
   cy.wait(1000)
   cy.get ('[class="btn btn-success btn-confirm"]', { timeout: 10000 }).click();
-
-  let curLog = { 
-    model: model.veh_desc,
-    car_year: model.car_year,
-    code: plan.code,
-    result: true 
-  }
-
-  logUtils.write(curLog)
-  logUtils.save(logPath)
 }
 
 
