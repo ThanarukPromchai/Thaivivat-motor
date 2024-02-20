@@ -55,7 +55,7 @@ export function promoMotor(info) {
 
             if (!policy_type_max.isNumber() || !policy_type_min.isNumber()) continue
 
-            cy.task("queryDb", `SELECT DISTINCT m.code, m.type, m.campaign, m.sum_insure, m.plan_date, m.plan_fix FROM promotion_main m 
+            cy.task("queryDb", `SELECT DISTINCT m.code, m.type, m.campaign, m.sum_insure, m.plan_date, m.plan_fix, m.check_campaign, m.issure_pass FROM promotion_main m 
             WHERE m.veh_cat = '${model.veh_cat}' 
             AND m.type = '${info.planType}'
             AND m.campaign like '%PU%' 
