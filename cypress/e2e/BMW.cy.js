@@ -13,19 +13,19 @@ describe('fuction spec', () => {
     cy.visit("https://beta.thaivivat.co.th/campaign/prepaid");
   })
 
-  bmw.forEach(element => {
-    it(`Test car: ${element.veh_desc}`, () => {
+  bmw.forEach(el => {
+    it(`Test brand: ${el.brand} car: ${el.veh_desc}, year: ${el.car_year}, campaign: ${el.campaign},sum_insure: ${el.sum_insure}` , () => {
       let info = {
         promoCode: null,
         homePlus: false,
         extraPlus: false
       }
 
-      e2e.selectCar(element)
-      e2e.selectPlan(element)
-      e2e.purchaseInfo(element, info)
+      e2e.selectCar(el)
+      e2e.selectPlan(el)
+      e2e.purchaseInfo(el, info)
 
-      cy.log(`Plan code -> ${element.code}: SUCCESS!`)
+      cy.log(`Plan code -> ${el.code}: SUCCESS!`)
     })
   });
 })
