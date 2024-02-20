@@ -58,7 +58,7 @@ export function promoMotor(info) {
             cy.task("queryDb", `SELECT * FROM promotion_main m 
             WHERE m.veh_cat = '${model.veh_cat}' 
             AND m.type = '${info.planType}'
-            AND m.campain like '%PU%' 
+            AND m.campaign like '%PU%' 
             AND m.sum_insure BETWEEN ${policy_type_min} AND ${policy_type_max} AND m.plan_date IN (${info.planDate.join(",")})`)
               .then(p => {
                 for (let j = 0; j < p.length; j++) {
