@@ -89,6 +89,7 @@ export function promoMotor(info) {
                       selectCar(objCar)
                       selectPlan(plan)
                       purchaseInfo(plan, info, model)
+                      console.log(`Plan code -> ${plan.code}: SUCCESS!`)
                     }
                   }
                 }
