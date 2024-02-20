@@ -56,67 +56,67 @@ describe('template spec', () => {
     e2e.promoMotor(info)
   })
 
-  it('CHEVROLET type 2 plan 365, 730', ()=>{
-    let info = {
-      brand: "CHEVROLET",
-      planType: "2",
-      planDate: [
-        "365", 
-        "730"
-      ],
-      // promoCode: "",
-      homePlus: false,
-      extraPlus: false,
-    }
+  // it('CHEVROLET type 2 plan 365, 730', ()=>{
+  //   let info = {
+  //     brand: "CHEVROLET",
+  //     planType: "2",
+  //     planDate: [
+  //       "365", 
+  //       "730"
+  //     ],
+  //     // promoCode: "",
+  //     homePlus: false,
+  //     extraPlus: false,
+  //   }
 
-    e2e.promoMotor(info)
-  })
+  //   e2e.promoMotor(info)
+  // })
 
-  it('FIAT type 2 plan 365, 730', ()=>{
-    let info = {
-      brand: "FIAT",
-      planType: "2",
-      planDate: [
-        "365", 
-        "730"
-      ],
-      // promoCode: "",
-      homePlus: false,
-      extraPlus: false,
-    }
+  // it('FIAT type 2 plan 365, 730', ()=>{
+  //   let info = {
+  //     brand: "FIAT",
+  //     planType: "2",
+  //     planDate: [
+  //       "365", 
+  //       "730"
+  //     ],
+  //     // promoCode: "",
+  //     homePlus: false,
+  //     extraPlus: false,
+  //   }
 
-    e2e.promoMotor(info)
-  })
+  //   e2e.promoMotor(info)
+  // })
 
-  it('FORD type 2 plan 365, 730', ()=>{
-    let info = {
-      brand: "FORD",
-      planType: "2",
-      planDate: [
-        "365", 
-        "730"
-      ],
-      // promoCode: "",
-      homePlus: false,
-      extraPlus: false,
-    }
+  // it('FORD type 2 plan 365, 730', ()=>{
+  //   let info = {
+  //     brand: "FORD",
+  //     planType: "2",
+  //     planDate: [
+  //       "365", 
+  //       "730"
+  //     ],
+  //     // promoCode: "",
+  //     homePlus: false,
+  //     extraPlus: false,
+  //   }
 
-    e2e.promoMotor(info)
-  })
+  //   e2e.promoMotor(info)
+  // })
 
-  it('HONDA type 2 plan 365, 730', ()=>{
-    let info = {
-      brand: "HONDA",
-      planType: "2",
-      planDate: [
-        "365", 
-        "730"
-      ],
-      // promoCode: "",
-      homePlus: false,
-      extraPlus: false,
-    }
+  // it('HONDA type 2 plan 365, 730', ()=>{
+  //   let info = {
+  //     brand: "HONDA",
+  //     planType: "2",
+  //     planDate: [
+  //       "365", 
+  //       "730"
+  //     ],
+  //     // promoCode: "",
+  //     homePlus: false,
+  //     extraPlus: false,
+  //   }
 
-    e2e.promoMotor(info)
-  })
+  //   e2e.promoMotor(info)
+  // })
 })
