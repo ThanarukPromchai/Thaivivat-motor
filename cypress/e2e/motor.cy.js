@@ -24,7 +24,7 @@ describe('template spec', () => {
       })
   })
 
-  it.only('Extra plus AION type 2 plan 365, 730', ()=>{
+  it('Extra plus AION type 2 plan 365, 730', ()=>{
     let info = {
       brand: "AION",
       planType: "2",

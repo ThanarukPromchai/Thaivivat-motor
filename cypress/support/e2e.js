@@ -53,6 +53,8 @@ export function promoMotor(info) {
               policy_type_max = model.policy_type_max.replaceAll(",", "")
             }
 
+            if (!policy_type_max.isNumber() || !policy_type_min.isNumber()) continue
+
             cy.task("queryDb", `SELECT * FROM promotion_main m 
             WHERE m.veh_cat = '${model.veh_cat}' 
             AND m.type = ${info.planType} 
@@ -313,3 +315,5 @@ function randomPlateNumber() {
   char +=  Math.floor(Math.random() * 10000)
   return char
 }
+
+String.prototype.isNumber = function(){return /^\d+$/.test(this);}
