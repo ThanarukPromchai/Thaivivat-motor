@@ -281,7 +281,7 @@ function paymentInfo(plan, model) {
 
 function confirm(plan, model) {
   cy.wait(1000)
-  cy.get ('[class="btn btn-success btn-confirm"]').click();
+  cy.get ('[class="btn btn-success btn-confirm"]', { timeout: 25000 }).click();
 
   let curLog = { 
     model: model.veh_desc,

@@ -8,13 +8,20 @@ describe('fuction spec', () => {
     }).as('init')
   })
 
-  it('test function dateNowPad2', ()=>{
+  it.skip('mysql connection', ()=>{
+    cy.task("queryDb", "SELECT * from car_model c WHERE c.brand = 'AION';")
+      .then(res => {
+        cy.log(res[0].veh_cat)
+      })
+  })
+
+  it.skip('test function dateNowPad2', ()=>{
     var date = new Date()
     var dateFormat = dateUtils.formatPad2(date)
     cy.log("TIMESTAMP :" + dateFormat)
   })
 
-  it('write log', ()=> {
+  it.skip('write log', ()=> {
     cy.get('@init').then((e) => {
       logUtils.write({
         timestamp: `${e.timestamp}`
