@@ -24,10 +24,10 @@ describe('template spec', () => {
       })
   })
 
-  it('Extra plus AION type 1 plan 365, 730', ()=>{
+  it('Extra plus AION type 2 plan 365, 730', ()=>{
     let info = {
       brand: "AION",
-      planType: "1",
+      planType: "2",
       planDate: [
         "365", 
         "730"
@@ -40,10 +40,74 @@ describe('template spec', () => {
     e2e.promoMotor(info)
   })
 
-  it.only('BMW type 1 plan 365, 730', ()=>{
+  it('BMW type 1 plan 365, 730', ()=>{
     let info = {
       brand: "BMW",
-      planType: "1",
+      planType: "2",
+      planDate: [
+        "365", 
+        "730"
+      ],
+      // promoCode: "",
+      homePlus: false,
+      extraPlus: false,
+    }
+
+    e2e.promoMotor(info)
+  })
+
+  it('CHEVROLET type 1 plan 365, 730', ()=>{
+    let info = {
+      brand: "CHEVROLET",
+      planType: "2",
+      planDate: [
+        "365", 
+        "730"
+      ],
+      // promoCode: "",
+      homePlus: false,
+      extraPlus: false,
+    }
+
+    e2e.promoMotor(info)
+  })
+
+  it('FIAT type 1 plan 365, 730', ()=>{
+    let info = {
+      brand: "FIAT",
+      planType: "2",
+      planDate: [
+        "365", 
+        "730"
+      ],
+      // promoCode: "",
+      homePlus: false,
+      extraPlus: false,
+    }
+
+    e2e.promoMotor(info)
+  })
+
+  it('FORD type 1 plan 365, 730', ()=>{
+    let info = {
+      brand: "FORD",
+      planType: "2",
+      planDate: [
+        "365", 
+        "730"
+      ],
+      // promoCode: "",
+      homePlus: false,
+      extraPlus: false,
+    }
+
+    e2e.promoMotor(info)
+  })
+
+  it('HONDA type 1 plan 365, 730', ()=>{
+    let info = {
+      brand: "HONDA",
+      planType: "2",
       planDate: [
         "365", 
         "730"
