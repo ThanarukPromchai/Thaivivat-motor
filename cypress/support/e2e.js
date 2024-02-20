@@ -37,7 +37,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 export function promoMotor(info) {
   var logPath = `cypress/log/${info.brand}/log.json`
   logUtils.read(logPath, (log)=>{
-    cy.task("queryDb", `SELECT * from car_model c WHERE c.brand = '${info.brand}';`)
+    cy.task("queryDb", `SELECT * from car_model c WHERE c.brand = '${info.brand}' AND c.car_year = 2021;`)
       .then(m => {
         for (let i = 0; i < m.length; i++) {
           let model = m[i]
