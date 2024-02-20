@@ -231,7 +231,7 @@ function purchaseInfo(plan, info, model) {
   
   //submit purchase insure
   cy.get('[id="button-submit"]').click();
-  cy.get('[class="swal2-actions"]').contains("ยืนยัน").click();
+  cy.get('[class="swal2-actions"]').contains("ยืนยัน", { timeout: 10000 }).click();
 
  
   cy.get("body").then($body => {
@@ -281,7 +281,7 @@ function paymentInfo(plan, model) {
 
 function confirm(plan, model) {
   cy.wait(1000)
-  cy.get ('[class="btn btn-success btn-confirm"]', { timeout: 25000 }).click();
+  cy.get ('[class="btn btn-success btn-confirm"]', { timeout: 10000 }).click();
 
   let curLog = { 
     model: model.veh_desc,
