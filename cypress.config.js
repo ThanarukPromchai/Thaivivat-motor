@@ -37,13 +37,12 @@ function queryTestDb(query) {
   let path = "database/motor.db"
   let db = new sqlite3.Database(path);
   return new Promise((resolve, reject) => {
+    console.log(`sql -> ${query}`)
       db.all(query, [], (err, rows) => {
       if(err) 
           reject(err); 
-
       else  {
         db.close();
-        console.log(rows)
         return resolve(rows);
       }//End else
     });//End db.run
