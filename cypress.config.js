@@ -1,5 +1,5 @@
 const { defineConfig } = require("cypress");
-const mysql = require('mysql');
+const sqlite3 = require('sqlite3');
 const fs = require('fs')
 
 
@@ -9,7 +9,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       on("task", {
         queryDb: (query) => {
-          return queryTestDb(query, config)
+          return queryTestDb(query)
         },
 
         readFileMaybe: (filename) => {
@@ -23,7 +23,7 @@ module.exports = defineConfig({
     "env": {
       "db": {
         "server": 'bch7uqeda4jykbc5p2bq-mysql.services.clever-cloud.com',
-        user: "u3vptwdyju71mj4m",
+        user: "'xJEv0TRBpLZ4C2yP7LlL'@'bch7uqeda4jykbc5p2bq-mysql.services.clever-cloud.com'",
         password: "xJEv0TRBpLZ4C2yP7LlL",
         database: "bch7uqeda4jykbc5p2bq"
       }
@@ -33,17 +33,19 @@ module.exports = defineConfig({
   numTestsKeptInMemory: 50,
 });
 
-function queryTestDb(query, config) {
-  const connection = mysql.createConnection(config.env.db);
-  connection.connect();
-
+function queryTestDb(query) {
+  let path = "database/motor.db"
+  let db = new sqlite3.Database(path);
   return new Promise((resolve, reject) => {
-    connection.query(query, (error, result) => {
-      if (error) reject(error);
-      else {
-        connection.end();
-        return resolve(result);
-      }
-    })
-  })
+      db.all(query, [], (err, rows) => {
+      if(err) 
+          reject(err); 
+
+      else  {
+        db.close();
+        console.log(rows)
+        return resolve(rows);
+      }//End else
+    });//End db.run
+  });
 }
