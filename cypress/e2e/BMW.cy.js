@@ -14,7 +14,7 @@ describe('fuction spec', () => {
   })
 
   bmw.forEach(el => {
-    it(`Test brand: ${el.brand} car: ${el.veh_desc}, year: ${el.car_year}, campaign: ${el.campaign},sum_insure: ${el.sum_insure}` , () => {
+    it(`Test brand: ${el.brand} car: ${el.veh_desc}, year: ${el.car_year}, campaign: ${el.campaign}, sum_insure: ${el.sum_insure}` , () => {
       let info = {
         promoCode: null,
         homePlus: false,
