@@ -24,8 +24,6 @@ const fakerTh = new Faker({
   locale: [th]
 })
 
-var logPath = "cypress/log/etc/log.json"
-
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
@@ -35,25 +33,34 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 export function selectCar(element) {  
+  let carYear = element.car_year.toString().trim();
+  let carBrand = element.brand.toString().trim();
+  let carModel = element.veh_desc.toString().trim();
+  
   var plus = ""
+  var carUnit = ""
+  
   if (element.type > 1) { plus = '-plus' }
+  if (element.car_cc_max == "999,999") { carUnit = "Watt" } else { carUnit = "CC"} 
+  
+  let model = `${carBrand.toUpperCase()} ${carModel.toUpperCase()} ${element.car_cc_min.replace(",", "")} - ${element.car_cc_max.replace(",", "")} ${carUnit}`
   
   cy.wait(1000);
   cy.get(`[data-test="button-planType-${element.type}${plus}"]`).click();
 
-  cy.get('[data-test="input-car-year"]', { timeout: 500 }).type(element.car_year);
-  cy.get('[data-test="input-car-year"]', { timeout: 500 }).type('{downArrow}{enter}');
+  cy.get('[data-test="input-car-year"]').focus().clear().type(carYear)
+  cy.get('[data-test="input-car-year"]').type('{downArrow}{enter}')
 
-  cy.get('[data-test="input-car-brand"]', { timeout: 500 }).type(element.brand);
-  cy.get('[data-test="input-car-brand"]', { timeout: 500 }).type('{downArrow}{enter}');
-
+  cy.get('[data-test="input-car-brand"]').focus().clear().type(carBrand)
+  cy.get('[data-test="input-car-brand"]').type('{downArrow}{enter}')
+// 
   cy.wait(1000);
-  cy.get('[data-test="input-car-model"]', { timeout: 500 })
+  cy.get('[data-test="input-car-model"]', { timeout: 1000 })
     .invoke('val')
     .then(text => {
       if (text.trim() == '') {
-        cy.get('[data-test="input-car-model"]', { timeout: 500 }).type(element.veh_desc);
-        cy.get('[data-test="input-car-model"]', { timeout: 500 }).type('{downArrow}{enter}');
+        cy.get('[data-test="input-car-model"]').focus().clear().type(model)
+        cy.get('[data-test="input-car-model"]').type('{downArrow}{enter}')
       }
       cy.get('[data-test="button-check-price"]').click();
     });
@@ -71,7 +78,7 @@ export function selectPlan(element) {
     if (element.plan_date == 30)      { cy.get('[id="hour1"]').click(); } 
     else if (element.plan_date == 90) { cy.get('[id="hour2"]').click(); }
   
-    cy.get("#select-plan-" + id).click({ force: true, timeout: 25000 })
+    cy.get("#select-plan-" + id).click({ force: true, timeout: 20000 })
   
     cy.get('[id="purchase-order"]').click();
   })
@@ -102,15 +109,18 @@ export function purchaseInfo(element, info) {
 
   //HomePlus/ExtraPlus 
   cy.wait(1000)
+  cy.log("HOME=" + info.homePlus)
+  cy.log("EXTRA=" + info.extraPlus)
+  
   if(element.plan_date != 30 && info.homePlus) {
-    cy.get('[id="home_flag"]', { timeout: 10000 }).should('be.visible');
+    cy.get('[id="home_flag"]', { timeout: 5000 }).should('be.visible');
     cy.get('[id="home_flag"]').click()
     cy.get('[id="confirm_owner_flag"]').click()
     cy.get('[id="btn-confirm-owner-home"]').click()
   }
   
-  if([365, 730].includes(element.plan_date) && info.extraPlus) {
-    cy.get('[class="checkbox-btn pull-left"]', { timeout: 10000 }).should('be.visible');
+  if(["365", "730"].includes(element.plan_date) && info.extraPlus) {
+    cy.get('[class="checkbox-btn pull-left"]', { timeout: 5000 }).should('be.visible');
     cy.get('[id="extra_flag"]').check()
   }
   
@@ -166,7 +176,7 @@ export function purchaseInfo(element, info) {
   
   //submit purchase insure
   cy.get('[id="button-submit"]').click();
-  cy.get('[class="swal2-actions"]').contains("ยืนยัน", { timeout: 10000 }).click();
+  cy.get('[class="swal2-actions"]').contains("ยืนยัน", { timeout: 5000 }).click();
 
  
   cy.get("body").then($body => {
@@ -193,12 +203,12 @@ function paymentInfo() {
   }
 
   cy.wait(1000)
-  cy.get('#card-number').type(payment.cardNo);
+  cy.get('#card-number').focus().clear().invoke('val', payment.cardNo).should('have.value', payment.cardNo);
   cy.get('select[id="card-expiration-month"]').select(payment.expMonth).should('have.value', payment.expMonth) ;    
   cy.get('select[id="card-expiration-year"]').select(payment.expYear).should('have.value', payment.expYear);
-  cy.get ('[id="card-name"]').type(payment.cardName);
+  cy.get ('[id="card-name"]').type(payment.cardName).should('have.value', payment.cardName);
 
-  cy.get ('[ id="card-ccv"]').type(payment.ccv);
+  cy.get ('[ id="card-ccv"]').type(payment.ccv).should('have.value', payment.ccv);
   cy.get ('[id="button-confirm"]').click();
 
   confirm()
@@ -206,7 +216,7 @@ function paymentInfo() {
 
 function confirm() {
   cy.wait(1000)
-  cy.get ('[class="btn btn-success btn-confirm"]', { timeout: 10000 }).click();
+  cy.get ('[class="btn btn-success btn-confirm"]', { timeout: 5000 }).click();
 }
 
 
