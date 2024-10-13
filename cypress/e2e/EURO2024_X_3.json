@@ -1,0 +1,20 @@
+[
+  {
+    "brand": "MAZDA",
+    "model": "CX-8",
+    "car_year": "2023",
+    "check_campaign": "Y"
+  },
+  {
+    "brand": "NISSAN",
+    "model": "ALMERA",
+    "car_year": "2023",
+    "check_campaign": "Y"
+  },
+  {
+    "brand": "TOYOTA",
+    "model": "ALPHARD",
+    "car_year": "2023",
+    "check_campaign": "Y"
+  }
+]

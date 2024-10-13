@@ -1,0 +1,386 @@
+[
+  
+  [
+  
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "PACKAGE_120",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "BYD",
+      "veh_desc": "E6",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "N",
+      "extra_plus": "N"
+    },
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "PACKAGE_180",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "NETA",
+      "veh_desc": "V",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "์N",
+      "extra_plus": "N"
+    },
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "PACKAGE_365",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "NETA",
+      "veh_desc": "V",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "N",
+      "extra_plus": "N"
+    },
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "TOPUP_1",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "TESLA",
+      "veh_desc": "MODEL Y",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "N",
+      "extra_plus": "N"
+    },
+    
+    
+  
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "PACKAGE_120",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "ORA",
+      "veh_desc": "GOOD CAT",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "Y",
+      "extra_plus": "N"
+    },
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "PACKAGE_180",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "BMW",
+      "veh_desc": "IX3",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "Y",
+      "extra_plus": "N"
+    },
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "PACKAGE_365",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "TESLA",
+      "veh_desc": "MODEL Y",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "Y",
+      "extra_plus": "N"
+    },
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "TOPUP_1",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "MG",
+      "veh_desc": "4 ELECTRIC",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "Y",
+      "extra_plus": "N"
+    },
+    
+  
+  
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "PACKAGE_365",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "MG",
+      "veh_desc": "4 ELECTRIC",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "N",
+      "extra_plus": "Y"
+    },
+    {
+      "type": "3",
+      "sum_insure": "300000",
+      "plan_fix": "TOPUP_1",
+      "issue_pass": "Y",
+      "check_campaign": "Y",
+      "brand": "BYD",
+      "veh_desc": "E6",
+      "car_group": "0",
+      "capacity_code": "K",
+      "car_year": "2023",
+      "home_plus": "N",
+      "extra_plus": "Y"
+    }
+  ]
+]
+
+[
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_30",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "SUZUKI",
+    "veh_desc": "SWIFT",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_90",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "MG",
+    "veh_desc": "5",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_120",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "NISSAN",
+    "veh_desc": "ALMERA",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_180",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "TOYOTA",
+    "veh_desc": "C-HR",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "์N",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_365",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "MAZDA",
+    "veh_desc": "CX-5",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "TOPUP_1",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "SUZUKI",
+    "veh_desc": "SWIFT",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "TOPUP_2",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "NISSAN",
+    "veh_desc": "NAVARA 2dr",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "YEAR",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "TOYOTA",
+    "veh_desc": "ALTIS",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "N"
+  },
+  
+
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_120",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "NISSAN",
+    "veh_desc": "ALMERA",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "Y",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_180",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "TOYOTA",
+    "veh_desc": "C-HR",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "Y",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_365",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "MAZDA",
+    "veh_desc": "CX-5",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "Y",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "TOPUP_1",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "SUZUKI",
+    "veh_desc": "SWIFT",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "Y",
+    "extra_plus": "N"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "TOPUP_2",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "NISSAN",
+    "veh_desc": "NAVARA 2dr",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "Y",
+    "extra_plus": "N"
+  },
+
+
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "PACKAGE_365",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "MAZDA",
+    "veh_desc": "CX-5",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "Y"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "TOPUP_1",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "SUZUKI",
+    "veh_desc": "SWIFT",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "Y"
+  },
+  {
+    "type": "1",
+    "sum_insure": "300000",
+    "plan_fix": "TOPUP_2",
+    "issue_pass": "Y",
+    "check_campaign": "Y",
+    "brand": "NISSAN",
+    "veh_desc": "NAVARA 2dr",
+    "car_group": "0",
+    "capacity_code": "K",
+    "car_year": "2023",
+    "home_plus": "N",
+    "extra_plus": "Y"
+  }
+]
+
+
+

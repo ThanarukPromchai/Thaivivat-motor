@@ -14,7 +14,7 @@ module.exports = defineConfig({
         },
       })
 
-      const runingNo = "1"
+      const runingNo = "AIS"
       const plan = require('./res/json/plan.json')
     
       config.env.plan = plan
@@ -23,6 +23,8 @@ module.exports = defineConfig({
       return config
     },
   },
+  viewportHeight:1048,
+  viewportWidth: 1920,
   isTextTerminal: false,
   numTestsKeptInMemory: 500,
   experimentalMemoryManagement: true
